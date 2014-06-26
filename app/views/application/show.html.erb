@@ -1,6 +1,13 @@
-<h1> <%= @id %> </h1>
+<h1>How are you feeling <%=@name%> ?</h1>
 
-<h1>*SHOWING <%=@name%> </h1>
 
-<iframe src="<%=@url%>" frameborder="0" height="800px" width="1500px">
+<form name="input" action="/mood">
+How are you feeling on the scale of 1-10: <input type="string" name="name" placeholder="Type your name here">
+   <input type="integer" name="mood" placeholder="1-10 only please">
+<input type="submit" value="Submit">
+</form>
+
+
+
+
 

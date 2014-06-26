@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625173756) do
+ActiveRecord::Schema.define(version: 20140626193816) do
+
+  create_table "moods", force: true do |t|
+    t.string   "name"
+    t.integer  "mood"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "news", force: true do |t|
     t.string   "url"
