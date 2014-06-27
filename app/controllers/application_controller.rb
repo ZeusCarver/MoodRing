@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     m.name = params['name']
     m.mood = params['mood']
     m.save
-    redirect_to "/"
+    @name = Mood.name
   end
   
   def show
