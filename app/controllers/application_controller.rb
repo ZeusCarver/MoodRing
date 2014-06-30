@@ -8,10 +8,39 @@ class ApplicationController < ActionController::Base
     m.name = params['name']
     m.mood = params['mood']
     m.save
-    @name = Mood.name
+    @name = m.name
+  end
+  
+  def updatemood
+    @mood = Mood.find_by_id(params['id'])
+  end
+  
+  def update
+    m = Mood.find_by_id(params['id'])
+    m.name = params['name']
+    m.mood = params['mood']
+    m.save
+    @name = m.name
+    redirect_to "/mood"
+  end
+  
+  def edit
+    @mood = Mood.find_by_id(params['id'])
   end
   
   def show
-    render 'show'
+    @mood = Mood.find_by_id(params[':id'])
+    render 'profile'
+  end
+  
+  def profile
+    @mood = Mood.find_by_id(params[':id'])
+  end
+  
+  def create
+     @mood = Mood.find_by_id(params['id'])
+  end 
+  def index
+    @moods = Mood.all
   end
 end
