@@ -1,12 +1,21 @@
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Profile ID #</th>
+          <th>Name</th>
+          <th>Current Mood Level</th>
+        </tr>
+      </thead>
+      <tbody>
 <%@moods.each do |mood|%>
-<div class="stripe">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <%=mood.name%> is feeling like a <%=mood.mood%>
-        </div>
-      </div>
-    </div>
-  </div>
-<%end%>
+        <tr>
+         <td><%=mood.id%></td>
+          <td><%=mood.name%></td>
+          <td><%=mood.mood%></td>
+        </tr>
+      <%end%>
+      </tbody>
+    </table>
+
 <br>
+

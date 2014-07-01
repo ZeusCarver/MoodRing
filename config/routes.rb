@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/profile/:id/edit' => 'application#edit'
   get '/profile/:id/show' => 'application#profile'
   get '/profile' => 'application#index'
-  
+  get '/destroy' => 'application#destroy'
+  get '/search' => 'application#search'
 
 end

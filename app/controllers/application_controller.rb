@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
+  
+  def home
+    @moods = Mood.all
+  end
+  
   def mood
     m = Mood.new
     m.name = params['name']
@@ -28,19 +32,32 @@ class ApplicationController < ActionController::Base
     @mood = Mood.find_by_id(params['id'])
   end
   
-  def show
-    @mood = Mood.find_by_id(params[':id'])
-    render 'profile'
-  end
-  
   def profile
-    @mood = Mood.find_by_id(params[':id'])
+    @mood = Mood.find_by_id(params['id'])
+    if @mood == nil
+      redirect_to '/'
+    else
+    render 'profile'
+    end
   end
   
   def create
      @mood = Mood.find_by_id(params['id'])
-  end 
+  end
+  
   def index
     @moods = Mood.all
   end
+  
+  def destroy
+    m = Mood.find_by_id(params['id'])
+    m.destroy
+    redirect_to "/"
+  end
+  
+  def search
+    id = params['id']
+    redirect_to "/profile/#{id}/show"
+  end
+  
 end
