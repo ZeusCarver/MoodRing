@@ -13,21 +13,19 @@ class ApplicationController < ActionController::Base
     m.mood = params['mood']
     m.save
     @name = m.name
+    
   end
   
   def updatemood
     @mood = Mood.find_by_id(params['id'])
-  end
-  
-  def update
     m = Mood.find_by_id(params['id'])
     m.name = params['name']
     m.mood = params['mood']
     m.save
     @name = m.name
-    redirect_to "/mood"
+    redirect_to "/"
   end
-  
+
   def edit
     @mood = Mood.find_by_id(params['id'])
   end
