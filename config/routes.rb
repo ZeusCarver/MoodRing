@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  
-  get '/' => 'application#home'
-  get '/mood' => 'application#mood'
-  get '/updatemood/:id' => 'application#updatemood'
-  get '/profile/create' => 'application#create'
-  get '/profile/:id/edit' => 'application#edit'
-  get '/profile/:id/show' => 'application#profile'
-  get '/profile' => 'application#index'
-  get '/destroy' => 'application#destroy'
-  get '/search' => 'application#search'
-
+  #CREATE
+  get '/mood' => 'moods#mood'
+  get '/profile/create' => 'moods#create'
+  #READ
+  get '/' => 'moods#home'
+  get '/search' => 'moods#search'
+  get '/profile' => 'moods#index'
+  get '/profile/:id/show' => 'moods#profile'
+  #UPDATE
+  get '/updatemood/:id' => 'moods#updatemood'
+  get '/profile/:id/edit' => 'moods#edit'
+  #DESTROY
+  get '/destroy' => 'moods#destroy'
 end
