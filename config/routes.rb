@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get '/profile/:id/edit' => 'moods#edit'
   #DESTROY
   get '/destroy' => 'moods#destroy'
+  #DATA
+  get '/graph' => 'data#graph'
 end
